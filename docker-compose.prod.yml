@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  app:
+    container_name: k8s-prod
+    build:
+      context: ./
+      dockerfile: Dockerfile.prod
+    ports:
+      - "80:80"
+      - "24678:24678"
+    volumes:
+      - ./:/app
+      - /app/node_modules
